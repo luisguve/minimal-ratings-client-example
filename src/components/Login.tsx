@@ -5,9 +5,13 @@ import AuthContext from "../context/AuthContext"
 
 const StrapiLogin = () => {
   return (
-    <div className="d-flex flex-column">
-      <RegisterForm />
-      <LoginForm />
+    <div className="row mb-4 p-0">
+      <div className="col-12 col-md-6">
+        <RegisterForm />
+      </div>
+      <div className="col-12 col-md-6">
+        <LoginForm />
+      </div>
     </div>
   )
 }
@@ -181,7 +185,7 @@ const LoginForm = () => {
     });
   }
   return (
-    <div className="d-flex flex-column mt-3 border rounded p-1 p-md-3">
+    <div className="d-flex flex-column border rounded p-1 p-md-3">
       <h4 className="fs-5 text-center">Inicia sesión</h4>
       <form className="d-flex flex-column" onSubmit={handleSubmit}>
         <label className="d-flex flex-column mb-2">
