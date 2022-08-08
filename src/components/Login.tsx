@@ -46,7 +46,7 @@ const RegisterForm = () => {
       return
     }
     if (!(password === password2)) {
-      console.log("Ambas contraseñas deben coincidir")
+      alert("Both passwords must be equal")
       return
     }
     const url = `${STRAPI}/api/auth/local/register`
@@ -75,7 +75,7 @@ const RegisterForm = () => {
         id: data.user.id,
         token: data.jwt
       })
-      console.log('Registrado exitosamente')
+      console.log('Register successful')
     })
     .catch(error => {
       console.log(error);
@@ -89,18 +89,18 @@ const RegisterForm = () => {
   }
   return (
     <div className="d-flex flex-column border rounded p-1 p-md-3">
-      <h4 className="fs-5 text-center">Registrate</h4>
+      <h4 className="fs-5 text-center">Register</h4>
       <form className="d-flex flex-column" onSubmit={handleSubmit}>
         <label className="d-flex flex-column mb-2">
-          Nombre completo
+          Full name
           <input className="form-control" type="text" value={username} onChange={handleName} required />
         </label>
         <label className="d-flex flex-column mb-2">
-          Correo electrónico
+          Email address
           <input className="form-control" type="email" value={email} onChange={handleEmail} required />
         </label>
         <label className="d-flex flex-column mb-2">
-          Contraseña
+          Password
           <input className="form-control"
             type={mostrar ? "text" : "password"}
             value={password}
@@ -109,7 +109,7 @@ const RegisterForm = () => {
           />
         </label>
         <label className="d-flex flex-column mb-2">
-          Confirmar contraseña
+          Confirm password
           <input className="form-control"
             type={mostrar ? "text" : "password"}
             value={password2}
@@ -124,13 +124,13 @@ const RegisterForm = () => {
             value={mostrar ? "checked" : undefined}
             onChange={() => setMostrar(!mostrar)}
           />
-          Ver contraseña
+          View password
         </label>
         <button
           type="submit"
           className="btn btn-secondary"
           disabled={!validInputs() ? true : false}
-        >Registrarse</button>
+        >Register</button>
       </form>
     </div>
   )
@@ -181,26 +181,26 @@ const LoginForm = () => {
     })
     .catch(error => {
       console.log(error);
-      console.log('Correo o contraseña inválidos')
+      alert('Invalid email or password')
     });
   }
   return (
     <div className="d-flex flex-column border rounded p-1 p-md-3">
-      <h4 className="fs-5 text-center">Inicia sesión</h4>
+      <h4 className="fs-5 text-center">Login</h4>
       <form className="d-flex flex-column" onSubmit={handleSubmit}>
         <label className="d-flex flex-column mb-2">
-          Correo electrónico
+          Email address
           <input className="form-control" type="email" value={email} onChange={handleEmail} required />
         </label>
         <label className="d-flex flex-column mb-2">
-          Contraseña
+          Password
           <input className="form-control" type="password" value={password} onChange={handlePassword} required />
         </label>
         <button
           type="submit"
           className="btn btn-primary"
           disabled={!validInputs() ? true : false}
-        >Iniciar sesión</button>
+        >Login</button>
       </form>
     </div>
   )

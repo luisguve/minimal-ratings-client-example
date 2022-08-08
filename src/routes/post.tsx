@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 const Post = () => {
   const { contentID } = useParams()
+
   useEffect(() => {
     if (contentID) {
     }

@@ -16,6 +16,7 @@ interface AppWrapperProps {
 }
 const AppWrapper = (props: AppWrapperProps) => {
   const { user } = useContext(AuthContext)
+
   useEffect(() => {
     if (user) {
     }
