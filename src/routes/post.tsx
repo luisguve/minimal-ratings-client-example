@@ -1,11 +1,17 @@
 import { useContext, useEffect } from "react"
 import { useParams, Link } from "react-router-dom";
 
+import { ReviewsConfigContext, Reviews, ReviewForm, ErrorBox } from "strapi-ratings-client"
+
 const Post = () => {
   const { contentID } = useParams()
 
+  const { setContentID, setCanPostReview } = useContext(ReviewsConfigContext)
+
   useEffect(() => {
     if (contentID) {
+      setContentID(contentID)
+      setCanPostReview(true)
     }
   }, [contentID])
 
@@ -21,6 +27,10 @@ const Post = () => {
         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
+
+      <ReviewForm />
+      <ErrorBox />
+      <Reviews />
     </div>
   )
 }
